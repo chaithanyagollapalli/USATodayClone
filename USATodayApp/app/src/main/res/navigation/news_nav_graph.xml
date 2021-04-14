@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/news_nav_graph"
+    app:startDestination="@id/topStoriesFragment2">
+
+    <fragment
+        android:id="@+id/topStoriesFragment2"
+        android:name="com.example.usatoday.fragments.TopStoriesFragment"
+        android:label="TopStoriesFragment" >
+        <action
+            android:id="@+id/action_topStoriesFragment2_to_sectionsFragment2"
+            app:destination="@id/sectionsFragment2" />
+        <action
+            android:id="@+id/action_topStoriesFragment2_to_savedNewsFragment2"
+            app:destination="@id/savedNewsFragment2" />
+        <action
+            android:id="@+id/action_topStoriesFragment2_to_popularFragment2"
+            app:destination="@id/popularFragment2" />
+        <action
+            android:id="@+id/action_topStoriesFragment2_to_myTopicFragment2"
+            app:destination="@id/myTopicFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/popularFragment2"
+        android:name="com.example.usatoday.fragments.PopularFragment"
+        android:label="PopularFragment" />
+    <fragment
+        android:id="@+id/sectionsFragment2"
+        android:name="com.example.usatoday.fragments.SectionsFragment"
+        android:label="SectionsFragment" />
+    <fragment
+        android:id="@+id/savedNewsFragment2"
+        android:name="com.example.usatoday.fragments.SavedNewsFragment"
+        android:label="SavedNewsFragment" />
+    <fragment
+        android:id="@+id/myTopicFragment2"
+        android:name="com.example.usatoday.fragments.MyTopicFragment"
+        android:label="MyTopicFragment" />
+</navigation>

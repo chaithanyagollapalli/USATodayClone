@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/topStoriesFragment"
+        android:icon="@drawable/ic_baseline_amp_stories_24"
+        android:title="Top Stories" />
+    <item
+        android:id="@+id/popularFragment"
+        android:icon="@drawable/ic_baseline_pouplar_24"
+        android:title="Popular" />
+    <item
+        android:id="@+id/sectionsFragment"
+        android:icon="@drawable/ic_baseline_format_sections_24"
+        android:title="Sections" />
+    <item
+        android:id="@+id/myTopicFragment"
+        android:icon="@drawable/ic_baseline_topic_24"
+        android:title="My Topic" />
+    <item
+        android:id="@+id/savedNewsFragment"
+        android:icon="@drawable/ic_baseline_saved_24"
+        android:title="Saved" />
+
+</menu>
