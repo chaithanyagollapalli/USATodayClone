@@ -20,7 +20,6 @@
     <fragment
         android:id="@+id/fragment"
         android:layout_marginBottom="@dimen/dp_50"
-        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
