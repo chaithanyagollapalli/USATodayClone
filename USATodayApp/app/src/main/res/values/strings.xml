@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">USA TODAY</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="example_headline">Decision expected on charges for the officer in the Daunte Wright shooting</string>
     <string name="title_activity_botton_navigation">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

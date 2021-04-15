@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/topStoriesFragment">
+
+    <fragment
+        android:id="@+id/topStoriesFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.TopStoriesFragment"
+        android:label="fragment_top_stories"
+        tools:layout="@layout/fragment_top_stories" />
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.PopularFragment"
+        android:label="fragment_popular"
+        tools:layout="@layout/fragment_popular" />
+    <fragment
+        android:id="@+id/sectionsFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.SectionsFragment"
+        android:label="fragment_sections"
+        tools:layout="@layout/fragment_sections" />
+    <fragment
+        android:id="@+id/myTopicsFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.MyTopicsFragment"
+        android:label="fragment_my_topics"
+        tools:layout="@layout/fragment_my_topics" />
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" />
+</navigation>
