@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/topStoriesFragment"
+        android:icon="@drawable/ic_script"
+        android:title="Top Stories" />
+    <item
+        android:id="@+id/popularFragment"
+        android:icon="@drawable/ic_star"
+        android:title="Popular" />
+    <item
+        android:id="@+id/sectionsFragment"
+        android:icon="@drawable/ic_sections"
+        android:title="Sections" />
+    <item
+        android:id="@+id/myTopicsFragment"
+        android:icon="@drawable/ic_speech_bubble"
+        android:title="My Topics" />
+    <item
+        android:id="@+id/savedFragment"
+        android:icon="@drawable/ic_save"
+        android:title="Saved" />
+</menu>
