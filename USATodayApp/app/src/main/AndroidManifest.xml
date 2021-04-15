@@ -9,20 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.USATODAY">
+        <activity android:name=".views.ui.SettingActivity"></activity>
         <activity
             android:name=".BottonNavigationActivity"
-            android:label="@string/title_activity_botton_navigation">
-
-
-        </activity>
-        <activity android:name=".SplashScreenActivity">
+            android:label="@string/title_activity_botton_navigation"></activity>
+        <activity android:name=".views.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".views.MainActivity" />
     </application>
 
 </manifest>
