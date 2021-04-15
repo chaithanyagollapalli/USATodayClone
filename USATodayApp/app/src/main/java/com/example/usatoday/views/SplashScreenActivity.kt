@@ -1,10 +1,11 @@
-package com.example.usatoday
+package com.example.usatoday.views
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import kotlinx.android.synthetic.main.activity_splash_screen.*
+import androidx.appcompat.app.AppCompatActivity
+import com.example.usatoday.MainActivity
+import com.example.usatoday.R
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -13,12 +14,12 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-handler = Handler()
+        handler = Handler()
         handler.postDelayed({
-            val intent  = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        },3000)
+        }, 3000)
 
     }
 }
