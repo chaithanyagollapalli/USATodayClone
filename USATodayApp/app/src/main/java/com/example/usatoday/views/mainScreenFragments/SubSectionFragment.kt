@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +15,6 @@ import com.example.usatoday.data.model.Response
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.adapters.SubSectionAdapter
 import kotlinx.android.synthetic.main.fragment_sub_section.*
-import kotlinx.android.synthetic.main.news_item_layout.view.*
 
 class SubSectionFragment : Fragment() {
 
@@ -30,6 +30,7 @@ class SubSectionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pbSubSection.isVisible = true
         val id: Int = requireArguments().getInt("id")
 
         rvSubSection.layoutManager = LinearLayoutManager(activity)
@@ -44,6 +45,7 @@ class SubSectionFragment : Fragment() {
                 usaTodayViewModel.getAllOlympicsNews().observe(viewLifecycleOwner, Observer {
                     val result = it.data!!
                     list.addAll(result)
+                    pbSubSection.isVisible = false;
                     subSectionAdapter.notifyDataSetChanged()
                 })
             }
@@ -53,6 +55,7 @@ class SubSectionFragment : Fragment() {
                 usaTodayViewModel.getAllMoviesNews().observe(viewLifecycleOwner, Observer {
                     val result = it.data!!
                     list.addAll(result)
+                    pbSubSection.isVisible = false;
                     subSectionAdapter.notifyDataSetChanged()
                 })
             }
@@ -62,6 +65,7 @@ class SubSectionFragment : Fragment() {
                 usaTodayViewModel.getAllFinanceNews().observe(viewLifecycleOwner, Observer {
                     val result = it.data!!
                     list.addAll(result)
+                    pbSubSection.isVisible = false;
                     subSectionAdapter.notifyDataSetChanged()
                 })
             }
@@ -71,6 +75,7 @@ class SubSectionFragment : Fragment() {
                 usaTodayViewModel.getAllTechNews().observe(viewLifecycleOwner, Observer {
                     val result = it.data!!
                     list.addAll(result)
+                    pbSubSection.isVisible = false;
                     subSectionAdapter.notifyDataSetChanged()
                 })
             }
@@ -80,6 +85,7 @@ class SubSectionFragment : Fragment() {
                 usaTodayViewModel.getAllDestinationNews().observe(viewLifecycleOwner, Observer {
                     val result = it.data!!
                     list.addAll(result)
+                    pbSubSection.isVisible = false;
                     subSectionAdapter.notifyDataSetChanged()
                 })
             }
@@ -89,6 +95,7 @@ class SubSectionFragment : Fragment() {
                 usaTodayViewModel.getAllAirlineNews().observe(viewLifecycleOwner, Observer {
                     val result = it.data!!
                     list.addAll(result)
+                    pbSubSection.isVisible = false;
                     subSectionAdapter.notifyDataSetChanged()
                 })
             }
