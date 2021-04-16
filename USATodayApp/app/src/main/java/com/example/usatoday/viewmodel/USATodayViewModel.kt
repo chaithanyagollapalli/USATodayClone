@@ -21,4 +21,58 @@ class USATodayViewModel() : ViewModel() {
 
     }
 
+    fun getAllMoviesNews(): LiveData<Resource<List<Response>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllMoviesNews()
+            emit(result)
+        }
+
+    }
+
+    fun getAllFinanceNews(): LiveData<Resource<List<Response>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllFinanceNews()
+            emit(result)
+        }
+
+    }
+
+    fun getAllOlympicsNews(): LiveData<Resource<List<Response>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllOlympicsNews()
+            emit(result)
+        }
+
+    }
+
+    fun getAllTechNews(): LiveData<Resource<List<Response>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllTechNews()
+            emit(result)
+        }
+
+    }
+
+    fun getAllDestinationNews(): LiveData<Resource<List<Response>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllDestinationNews()
+            emit(result)
+        }
+
+    }
+
+    fun getAllAirlineNews(): LiveData<Resource<List<Response>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllAirlineNews()
+            emit(result)
+        }
+
+    }
+
 }

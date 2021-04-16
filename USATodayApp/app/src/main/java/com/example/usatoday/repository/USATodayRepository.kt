@@ -24,4 +24,70 @@ class USATodayRepository {
         }
     }
 
+    suspend fun getAllMoviesNews(): Resource<List<Response>> {
+        val result = apiClient.getAllMoviesNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getAllFinanceNews(): Resource<List<Response>> {
+        val result = apiClient.getAllFinanceNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getAllOlympicsNews(): Resource<List<Response>> {
+        val result = apiClient.getAllOlympicsNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getAllTechNews(): Resource<List<Response>> {
+        val result = apiClient.getAllTechNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getAllDestinationNews(): Resource<List<Response>> {
+        val result = apiClient.getAllDestinationNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getAllAirlineNews(): Resource<List<Response>> {
+        val result = apiClient.getAllAirlineNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
 }

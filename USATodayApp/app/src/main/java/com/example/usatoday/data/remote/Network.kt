@@ -12,7 +12,7 @@ class Network {
 
         fun getInstance(): Retrofit {
             return Retrofit.Builder()
-                .baseUrl("https://a4ee1ea5dd1f.ngrok.io")
+                .baseUrl("https://abd4629ed6f1.ngrok.io/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build())
                 .build()
