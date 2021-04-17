@@ -33,6 +33,9 @@ interface APIService {
     @GET("mytopics")
     suspend fun getMyTopics(): List<Response>
 
+    @GET("savednews")
+    suspend fun getSavedNews(): List<Response>
+
     @GET("allsubcategory")
     suspend fun getSubCategoryList(): List<SubCategoryDTO>
 
