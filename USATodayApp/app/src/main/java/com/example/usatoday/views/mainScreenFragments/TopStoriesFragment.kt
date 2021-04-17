@@ -15,7 +15,7 @@ import com.example.usatoday.R
 import com.example.usatoday.data.model.Response
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.activities.ArticleActivity
-import com.example.usatoday.views.adapters.TopStoriesAdapter
+import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.interfaces.ShareClickListener
 import com.google.gson.Gson
@@ -42,9 +42,8 @@ class TopStoriesFragment : Fragment(), ArticleClickListener, ShareClickListener 
         pbTopStories.isVisible = true
 
         rvTopStories.layoutManager = LinearLayoutManager(activity)
-        val topStoriesAdapter = TopStoriesAdapter(list, this, this)
-        rvTopStories.adapter = topStoriesAdapter
-
+        val newsAdapter = NewsAdapter(list, this)
+        rvTopStories.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
@@ -63,37 +62,18 @@ class TopStoriesFragment : Fragment(), ArticleClickListener, ShareClickListener 
                 intent.putExtra("response", myJson)
                 startActivity(intent)
             }
-            topStoriesAdapter.notifyDataSetChanged()
+            newsAdapter.notifyDataSetChanged()
         })
 
-
-//        AllCategoriesFragment allCategoriesFragment = new AllCategoriesFragment();
-//            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.nav_host_fragment, allCategoriesFragment, "AllCategoriesFragment")
-//                    .addToBackStack(null)
-//                    .commit();
-
-
-    }
-
-
-    companion object {
-        fun newInstance() =
-            TopStoriesFragment().apply {
-
-            }
     }
 
     override fun onArticleClick(response: Response) {
-
-        val gson = Gson()
-        val myJson = gson.toJson(response)
-
-//        val action = TopStoriesFragmentDirections.actionTopStoriesFragmentToArticleFragment(myJson)
-//        findNavController().navigate(action)
-
         val intent = Intent(activity, ArticleActivity::class.java)
-        intent.putExtra("response", myJson)
+        intent.putExtra("response", response)
         startActivity(intent)
+    }
+
+    override fun onSaveClicked(response: Response) {
 
     }
 

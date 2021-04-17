@@ -15,21 +15,25 @@ class TopStoriesViewHolder(
 ) :
     RecyclerView.ViewHolder(itemView) {
 
+class NewsViewHolder(view: View, private val articleClickListener: ArticleClickListener) :
+    RecyclerView.ViewHolder(view) {
 
     fun setData(response: Response) {
 
         itemView.apply {
             tvHeadline.text = response.heading
             Glide.with(this).load(response.img).into(ivImage)
+            tvDateTime.text = response.time
             tvHeadline.setOnClickListener {
                 response.id?.let { articleClickListener.onArticleClick(response) }
             }
             ibShare.setOnClickListener {
                 shareClickListener.onShareClick(response)
             }
+
+            ibSave.setOnClickListener {
+                response.id?.let { articleClickListener.onSaveClicked(response) }
+            }
         }
-
     }
-
-
 }

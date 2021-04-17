@@ -12,6 +12,9 @@ interface APIService {
     @GET("allnews")
     suspend fun getAllNews(): List<Response>
 
+    @GET("popular")
+    suspend fun getPopularNews(): List<Response>
+
     @GET("movies")
     suspend fun getAllMoviesNews(): List<Response>
 
@@ -33,6 +36,9 @@ interface APIService {
     @GET("mytopics")
     suspend fun getMyTopics(): List<Response>
 
+    @GET("savednews")
+    suspend fun getSavedNews(): List<Response>
+
     @GET("allsubcategory")
     suspend fun getSubCategoryList(): List<SubCategoryDTO>
 
@@ -44,5 +50,8 @@ interface APIService {
 
     @POST("deltopic/{id}")
     suspend fun delTopic(@Path("id") id: Int): List<SubCategoryDTO>
+
+    @POST("save/{id}")
+    suspend fun saveNews(@Path("id") id: Int): List<Response>
 
 }

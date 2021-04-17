@@ -12,12 +12,25 @@ class USATodayRepository {
 
     private val apiClient: APIService = Network.getInstance().create(APIService::class.java)
 
+
+
     private val responseHandler = ResponseHandler()
 
     suspend fun getAllNews(): Resource<List<Response>> {
 
         val result = apiClient.getAllNews()
 
+        try {
+            return responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            return responseHandler.handleException(e)
+        }
+    }
+
+
+    suspend fun getPopularNews(): Resource<List<Response>> {
+        val result = apiClient.getPopularNews()
         try {
             return responseHandler.handleSuccess(result)
 
@@ -103,6 +116,17 @@ class USATodayRepository {
         }
     }
 
+    suspend fun getSavedNews(): Resource<List<Response>> {
+        val result = apiClient.getSavedNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
     suspend fun getAllSubCategory(): Resource<List<SubCategoryDTO>> {
         val result = apiClient.getSubCategoryList()
 
@@ -138,6 +162,17 @@ class USATodayRepository {
 
     suspend fun delTopic(id: Int): Resource<List<SubCategoryDTO>> {
         val result = apiClient.delTopic(id)
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun saveNews(id: Int): Resource<List<Response>> {
+        val result = apiClient.saveNews(id)
 
         return try {
             responseHandler.handleSuccess(result)
