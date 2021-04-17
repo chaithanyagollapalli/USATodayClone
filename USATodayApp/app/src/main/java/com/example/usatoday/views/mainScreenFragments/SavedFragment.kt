@@ -25,7 +25,7 @@ class SavedFragment : Fragment() {
 
     companion object {
 
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             SavedFragment().apply {
 
             }
