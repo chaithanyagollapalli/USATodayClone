@@ -114,8 +114,30 @@ class USATodayRepository {
         }
     }
 
-    suspend fun getAllVideos(): Resource<List<VideosDTO>>{
+    suspend fun getAllVideos(): Resource<List<VideosDTO>> {
         val result = apiClient.getAllVideos()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun saveTopic(id: Int): Resource<List<SubCategoryDTO>> {
+        val result = apiClient.saveTopic(id)
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun delTopic(id: Int): Resource<List<SubCategoryDTO>> {
+        val result = apiClient.delTopic(id)
 
         return try {
             responseHandler.handleSuccess(result)

@@ -41,21 +41,11 @@ class TopStoriesFragment : Fragment() {
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
-        usaTodayViewModel.getAllNews().observe(this, Observer {
+        usaTodayViewModel.getAllNews().observe(viewLifecycleOwner, Observer {
             val result = it.data!!
             list.addAll(result)
             pbTopStories.isVisible = false
             topStoriesAdapter.notifyDataSetChanged()
         })
-
-
-    }
-
-
-    companion object {
-        fun newInstance() =
-            TopStoriesFragment().apply {
-
-            }
     }
 }

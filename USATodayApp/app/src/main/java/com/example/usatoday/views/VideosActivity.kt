@@ -10,8 +10,6 @@ import com.example.usatoday.R
 import com.example.usatoday.data.model.VideosDTO
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.adapters.VideosAdapter
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import kotlinx.android.synthetic.main.activity_my_topics_filter.*
 import kotlinx.android.synthetic.main.activity_videos.*
 

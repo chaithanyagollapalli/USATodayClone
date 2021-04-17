@@ -38,7 +38,11 @@ class MyTopicsFilterActivity : AppCompatActivity(), SwitchListener {
     }
 
     override fun switchStatus(value: Boolean, position: Int) {
-            val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
-
+        val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
+        if (value) {
+            usaTodayViewModel.saveTopic(subCategories[position].id!!).observe(this, Observer {
+                val result = it
+            })
+        }
     }
 }

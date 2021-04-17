@@ -5,6 +5,7 @@ import com.example.usatoday.data.model.SubCategoryDTO
 import com.example.usatoday.data.model.VideosDTO
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface APIService {
 
@@ -37,5 +38,11 @@ interface APIService {
 
     @GET("videos")
     suspend fun getAllVideos(): List<VideosDTO>
+
+    @POST("savetopic/{id}")
+    suspend fun saveTopic(@Path("id") id: Int): List<SubCategoryDTO>
+
+    @POST("deltopic/{id}")
+    suspend fun delTopic(@Path("id") id: Int): List<SubCategoryDTO>
 
 }

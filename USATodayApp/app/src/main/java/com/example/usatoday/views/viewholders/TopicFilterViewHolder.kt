@@ -14,7 +14,7 @@ class TopicFilterViewHolder(view: View) :
         itemView.apply {
             tvSectionName.text = subCategoryDTO.name;
 
-            if (scSection.isChecked) {
+            if (scSection.isActivated) {
                 switchListener.switchStatus(true, adapterPosition)
             } else {
                 switchListener.switchStatus(false, adapterPosition)

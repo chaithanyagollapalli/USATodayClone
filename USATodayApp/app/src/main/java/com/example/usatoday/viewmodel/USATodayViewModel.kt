@@ -102,4 +102,18 @@ class USATodayViewModel() : ViewModel() {
         }
     }
 
+    fun saveTopic(id: Int): LiveData<Resource<List<SubCategoryDTO>>> {
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.saveTopic(id)
+            emit(result)
+        }
+    }
+
+    fun delTopic(id: Int): LiveData<Resource<List<SubCategoryDTO>>> {
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.delTopic(id)
+            emit(result)
+        }
+    }
+
 }
