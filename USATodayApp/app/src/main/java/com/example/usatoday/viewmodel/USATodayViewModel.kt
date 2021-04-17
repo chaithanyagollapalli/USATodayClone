@@ -115,7 +115,14 @@ class USATodayViewModel() : ViewModel() {
         }
     }
 
-    fun getPopularNews() : LiveData<Resource<List<Response>>>{
+    fun saveNews(id: Int): LiveData<Resource<List<Response>>> {
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.saveNews(id)
+            emit(result)
+        }
+    }
+
+    fun getPopularNews(): LiveData<Resource<List<Response>>> {
         return liveData(Dispatchers.IO) {
             val result = usaTodayRepository.getPopularNews()
             emit(result)

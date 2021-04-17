@@ -51,5 +51,7 @@ interface APIService {
     @POST("deltopic/{id}")
     suspend fun delTopic(@Path("id") id: Int): List<SubCategoryDTO>
 
+    @POST("save/{id}")
+    suspend fun saveNews(@Path("id") id: Int): List<Response>
 
 }
