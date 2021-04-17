@@ -72,14 +72,14 @@ class TopStoriesFragment : Fragment(), ArticleClickListener {
 
     override fun onArticleClick(response: Response) {
 
-        val gson = Gson()
-        val myJson = gson.toJson(response)
+//        val gson = Gson()
+//        val myJson = gson.toJson(response)
 
 //        val action = TopStoriesFragmentDirections.actionTopStoriesFragmentToArticleFragment(myJson)
 //        findNavController().navigate(action)
 
         val intent = Intent(activity, ArticleActivity::class.java)
-        intent.putExtra("response", myJson)
+        intent.putExtra("response", response)
         startActivity(intent)
 
     }

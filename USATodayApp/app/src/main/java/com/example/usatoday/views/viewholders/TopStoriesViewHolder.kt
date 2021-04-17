@@ -15,6 +15,7 @@ class TopStoriesViewHolder(itemView: View, private val articleClickListener: Art
 
         itemView.apply {
             tvHeadline.text = response.heading
+            tvDateTime.text = response.time
             Glide.with(this).load(response.img).into(ivImage)
             tvHeadline.setOnClickListener {
                 response.id?.let { articleClickListener.onArticleClick(response) }
