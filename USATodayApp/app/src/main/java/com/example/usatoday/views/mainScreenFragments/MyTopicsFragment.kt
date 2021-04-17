@@ -15,7 +15,7 @@ import com.example.usatoday.data.model.Response
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.MyTopicsFilterActivity
 import com.example.usatoday.views.activities.ArticleActivity
-import com.example.usatoday.views.adapters.MyTopicsAdapter
+import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
 import kotlinx.android.synthetic.main.fragment_my_topics.*
 
@@ -38,8 +38,8 @@ class MyTopicsFragment : Fragment(), ArticleClickListener {
         initClickListener()
 
         rvMyTopics.layoutManager = LinearLayoutManager(activity)
-        val myTopicsAdapter = MyTopicsAdapter(list, this)
-        rvMyTopics.adapter = myTopicsAdapter
+        val newsAdapter = NewsAdapter(list, this)
+        rvMyTopics.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
@@ -47,7 +47,7 @@ class MyTopicsFragment : Fragment(), ArticleClickListener {
             val result = it.data!!
             list.addAll(result)
             pbMyTopics.isVisible = false;
-            myTopicsAdapter.notifyDataSetChanged()
+            newsAdapter.notifyDataSetChanged()
         })
     }
 
@@ -62,6 +62,10 @@ class MyTopicsFragment : Fragment(), ArticleClickListener {
         val intent = Intent(activity, ArticleActivity::class.java)
         intent.putExtra("response", response)
         startActivity(intent)
+    }
+
+    override fun onSaveClicked(response: Response) {
+
     }
 
 }

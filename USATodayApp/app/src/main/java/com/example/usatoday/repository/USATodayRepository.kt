@@ -103,6 +103,17 @@ class USATodayRepository {
         }
     }
 
+    suspend fun getSavedNews(): Resource<List<Response>> {
+        val result = apiClient.getSavedNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
     suspend fun getAllSubCategory(): Resource<List<SubCategoryDTO>> {
         val result = apiClient.getSubCategoryList()
 
