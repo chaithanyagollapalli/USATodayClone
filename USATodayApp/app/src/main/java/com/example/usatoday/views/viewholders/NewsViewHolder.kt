@@ -8,14 +8,12 @@ import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.interfaces.ShareClickListener
 import kotlinx.android.synthetic.main.news_item_layout.view.*
 
-class TopStoriesViewHolder(
-    itemView: View,
+
+class NewsViewHolder(
+    view: View,
     private val articleClickListener: ArticleClickListener,
     private val shareClickListener: ShareClickListener
 ) :
-    RecyclerView.ViewHolder(itemView) {
-
-class NewsViewHolder(view: View, private val articleClickListener: ArticleClickListener) :
     RecyclerView.ViewHolder(view) {
 
     fun setData(response: Response) {
