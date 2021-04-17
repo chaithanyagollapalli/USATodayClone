@@ -15,6 +15,7 @@ class NewsViewHolder(view: View, private val articleClickListener: ArticleClickL
         itemView.apply {
             tvHeadline.text = response.heading
             Glide.with(this).load(response.img).into(ivImage)
+            tvDateTime.text = response.time
             tvHeadline.setOnClickListener {
                 response.id?.let { articleClickListener.onArticleClick(response) }
             }

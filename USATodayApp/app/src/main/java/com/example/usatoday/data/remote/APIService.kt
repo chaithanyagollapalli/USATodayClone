@@ -12,6 +12,9 @@ interface APIService {
     @GET("allnews")
     suspend fun getAllNews(): List<Response>
 
+    @GET("popular")
+    suspend fun getPopularNews(): List<Response>
+
     @GET("movies")
     suspend fun getAllMoviesNews(): List<Response>
 

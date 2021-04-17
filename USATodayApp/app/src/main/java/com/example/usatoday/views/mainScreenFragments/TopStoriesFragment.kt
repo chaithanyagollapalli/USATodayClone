@@ -32,7 +32,9 @@ class TopStoriesFragment : Fragment(), ArticleClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         pbTopStories.isVisible = true
+
         rvTopStories.layoutManager = LinearLayoutManager(activity)
         val newsAdapter = NewsAdapter(list, this)
         rvTopStories.adapter = newsAdapter
@@ -52,7 +54,6 @@ class TopStoriesFragment : Fragment(), ArticleClickListener {
         val intent = Intent(activity, ArticleActivity::class.java)
         intent.putExtra("response", response)
         startActivity(intent)
-
     }
 
     override fun onSaveClicked(response: Response) {
