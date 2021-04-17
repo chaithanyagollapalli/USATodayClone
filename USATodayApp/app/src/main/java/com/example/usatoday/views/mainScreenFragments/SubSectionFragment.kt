@@ -17,9 +17,10 @@ import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.activities.ArticleActivity
 import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
+import com.example.usatoday.views.interfaces.ShareClickListener
 import kotlinx.android.synthetic.main.fragment_sub_section.*
 
-class SubSectionFragment : Fragment(), ArticleClickListener {
+class SubSectionFragment : Fragment(), ArticleClickListener,ShareClickListener {
 
     private val list = mutableListOf<Response>()
 
@@ -37,7 +38,7 @@ class SubSectionFragment : Fragment(), ArticleClickListener {
         val id: Int = requireArguments().getInt("id")
 
         rvSubSection.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this)
+        val newsAdapter = NewsAdapter(list, this,this)
         rvSubSection.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
@@ -113,6 +114,10 @@ class SubSectionFragment : Fragment(), ArticleClickListener {
     }
 
     override fun onSaveClicked(response: Response) {
+
+    }
+
+    override fun onShareClick(response: Response) {
 
     }
 }
