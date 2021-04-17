@@ -158,4 +158,15 @@ class USATodayRepository {
         }
     }
 
+    suspend fun saveNews(id: Int): Resource<List<Response>> {
+        val result = apiClient.saveNews(id)
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
 }

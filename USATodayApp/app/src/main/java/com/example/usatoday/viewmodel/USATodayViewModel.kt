@@ -115,4 +115,11 @@ class USATodayViewModel() : ViewModel() {
         }
     }
 
+    fun saveNews(id: Int): LiveData<Resource<List<Response>>> {
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.saveNews(id)
+            emit(result)
+        }
+    }
+
 }
