@@ -115,4 +115,11 @@ class USATodayViewModel() : ViewModel() {
         }
     }
 
+    fun getPopularNews() : LiveData<Resource<List<Response>>>{
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getPopularNews()
+            emit(result)
+        }
+    }
+
 }

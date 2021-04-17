@@ -32,7 +32,9 @@ class TopStoriesFragment : Fragment(), ArticleClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         pbTopStories.isVisible = true
+
         rvTopStories.layoutManager = LinearLayoutManager(activity)
         val newsAdapter = NewsAdapter(list, this)
         rvTopStories.adapter = newsAdapter
