@@ -14,6 +14,7 @@ import com.example.usatoday.R
 import com.example.usatoday.data.model.Response
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.activities.ArticleActivity
+import com.example.usatoday.views.activities.SettingActivity
 import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.interfaces.ShareClickListener
@@ -38,7 +39,7 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
         pbSaved.isVisible = true
 
         rvSaved.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this,this)
+        val newsAdapter = NewsAdapter(list, this, this)
         rvSaved.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
@@ -49,6 +50,11 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
             pbSaved.isVisible = false;
             newsAdapter.notifyDataSetChanged()
         })
+
+        ivSettingsSaved.setOnClickListener {
+            val intent = Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -63,6 +69,13 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
     }
 
     override fun onShareClick(response: Response) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, response.heading.toString() + "\n" + "\n" + response.img)
+            type = "text/plain"
+        }
 
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }

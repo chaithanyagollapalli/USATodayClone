@@ -15,6 +15,7 @@ import com.example.usatoday.data.model.Response
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.MyTopicsFilterActivity
 import com.example.usatoday.views.activities.ArticleActivity
+import com.example.usatoday.views.activities.SettingActivity
 import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.interfaces.ShareClickListener
@@ -50,6 +51,11 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
             pbMyTopics.isVisible = false;
             newsAdapter.notifyDataSetChanged()
         })
+
+        ivSettingsMyTopics.setOnClickListener {
+            val intent = Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initClickListener() {
@@ -70,7 +76,14 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
     }
 
     override fun onShareClick(response: Response) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, response.heading.toString() + "\n" + "\n" + response.img)
+            type = "text/plain"
+        }
 
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
 }

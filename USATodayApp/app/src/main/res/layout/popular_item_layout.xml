@@ -21,7 +21,7 @@
             android:background="@drawable/circle"
             android:gravity="center"
             android:text="No"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold" />
 
@@ -40,7 +40,7 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/Saved"
+            android:id="@+id/ivSaved"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvTitle"
@@ -51,7 +51,7 @@
             android:src="@drawable/ic_save_news" />
 
         <ImageView
-            android:id="@+id/Share"
+            android:id="@+id/ivShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvTitle"

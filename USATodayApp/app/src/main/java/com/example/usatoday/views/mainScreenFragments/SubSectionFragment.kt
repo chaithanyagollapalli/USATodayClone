@@ -118,6 +118,13 @@ class SubSectionFragment : Fragment(), ArticleClickListener,ShareClickListener {
     }
 
     override fun onShareClick(response: Response) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, response.heading.toString() + "\n" + "\n" + response.img)
+            type = "text/plain"
+        }
 
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }

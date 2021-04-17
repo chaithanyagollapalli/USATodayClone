@@ -1,4 +1,4 @@
-package com.example.usatoday.views.ui
+package com.example.usatoday.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
