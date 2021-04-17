@@ -1,7 +1,10 @@
 package com.example.usatoday.data.remote
 
 import com.example.usatoday.data.model.Response
+import com.example.usatoday.data.model.SubCategoryDTO
+import com.example.usatoday.data.model.VideosDTO
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface APIService {
 
@@ -25,5 +28,14 @@ interface APIService {
 
     @GET("airline")
     suspend fun getAllAirlineNews(): List<Response>
+
+    @GET("mytopics")
+    suspend fun getMyTopics(): List<Response>
+
+    @GET("allsubcategory")
+    suspend fun getSubCategoryList(): List<SubCategoryDTO>
+
+    @GET("videos")
+    suspend fun getAllVideos(): List<VideosDTO>
 
 }

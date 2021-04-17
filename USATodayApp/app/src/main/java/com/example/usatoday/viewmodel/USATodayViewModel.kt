@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.usatoday.data.model.Response
+import com.example.usatoday.data.model.SubCategoryDTO
+import com.example.usatoday.data.model.VideosDTO
 import com.example.usatoday.data.remote.Resource
 import com.example.usatoday.repository.USATodayRepository
 import kotlinx.coroutines.Dispatchers
@@ -73,6 +75,31 @@ class USATodayViewModel() : ViewModel() {
             emit(result)
         }
 
+    }
+
+    fun getMyTopics(): LiveData<Resource<List<Response>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getMyTopics()
+            emit(result)
+        }
+
+    }
+
+    fun getSubCategories(): LiveData<Resource<List<SubCategoryDTO>>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllSubCategory()
+            emit(result)
+        }
+
+    }
+
+    fun getAllVideos(): LiveData<Resource<List<VideosDTO>>> {
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getAllVideos()
+            emit(result)
+        }
     }
 
 }

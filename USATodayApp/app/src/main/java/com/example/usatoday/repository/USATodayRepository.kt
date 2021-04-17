@@ -1,6 +1,8 @@
 package com.example.usatoday.repository
 
 import com.example.usatoday.data.model.Response
+import com.example.usatoday.data.model.SubCategoryDTO
+import com.example.usatoday.data.model.VideosDTO
 import com.example.usatoday.data.remote.APIService
 import com.example.usatoday.data.remote.Network
 import com.example.usatoday.data.remote.Resource
@@ -81,6 +83,39 @@ class USATodayRepository {
 
     suspend fun getAllAirlineNews(): Resource<List<Response>> {
         val result = apiClient.getAllAirlineNews()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getMyTopics(): Resource<List<Response>> {
+        val result = apiClient.getMyTopics()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getAllSubCategory(): Resource<List<SubCategoryDTO>> {
+        val result = apiClient.getSubCategoryList()
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getAllVideos(): Resource<List<VideosDTO>>{
+        val result = apiClient.getAllVideos()
 
         return try {
             responseHandler.handleSuccess(result)
