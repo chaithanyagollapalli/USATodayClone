@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.mainScreenFragments.TopStoriesFragment">
+    android:orientation="vertical"
+    tools:context=".views.mainScreenFragments.SubSectionFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvTopStories"
+        android:id="@+id/cvSubSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/dp_10"
@@ -18,17 +19,25 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_10"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
                 android:id="@+id/ivSubSectionLogo"
                 android:layout_width="@dimen/dp_130"
                 android:layout_height="@dimen/dp_50"
                 android:padding="@dimen/dp_8"
-                android:src="@drawable/main_logo"
+                android:src="@drawable/sports_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/ivSearchTopStories"
+                android:id="@+id/ivSearchSections"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_10"
@@ -41,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_10"
                 android:src="@drawable/ic_settings"
-                app:layout_constraintEnd_toStartOf="@id/ivSearchTopStories"
+                app:layout_constraintEnd_toStartOf="@id/ivSearchSections"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -49,7 +58,7 @@
     </androidx.cardview.widget.CardView>
 
     <ProgressBar
-        android:id="@+id/pbTopStories"
+        android:id="@+id/pbSubSection"
         android:layout_width="@dimen/dp_30"
         android:layout_height="@dimen/dp_30"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,10 +67,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTopStories"
+        android:id="@+id/rvSubSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp_50"
-        app:layout_constraintTop_toBottomOf="@id/cvTopStories" />
+        app:layout_constraintTop_toBottomOf="@id/cvSubSection" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

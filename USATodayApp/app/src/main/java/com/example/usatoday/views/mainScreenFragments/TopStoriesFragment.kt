@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -31,14 +32,7 @@ class TopStoriesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val viewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
-
-//        viewModel.getAllNews().observe(viewLifecycleOwner, Observer {
-//            val result = it
-//
-//        })
-
-//        val rvTopStories = view.findViewById(R.id.rvTopStories) as RecyclerView
+        pbTopStories.isVisible = true
 
         rvTopStories.layoutManager = LinearLayoutManager(activity)
         val topStoriesAdapter = TopStoriesAdapter(list)
@@ -47,20 +41,11 @@ class TopStoriesFragment : Fragment() {
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
-        usaTodayViewModel.getAllNews().observe(this, Observer {
+        usaTodayViewModel.getAllNews().observe(viewLifecycleOwner, Observer {
             val result = it.data!!
             list.addAll(result)
+            pbTopStories.isVisible = false
             topStoriesAdapter.notifyDataSetChanged()
         })
-
-
-    }
-
-
-    companion object {
-        fun newInstance() =
-            TopStoriesFragment().apply {
-
-            }
     }
 }
