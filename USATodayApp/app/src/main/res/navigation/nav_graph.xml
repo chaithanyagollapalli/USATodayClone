@@ -9,7 +9,11 @@
         android:id="@+id/topStoriesFragment"
         android:name="com.example.usatoday.views.mainScreenFragments.TopStoriesFragment"
         android:label="fragment_top_stories"
-        tools:layout="@layout/fragment_top_stories" />
+        tools:layout="@layout/fragment_top_stories" >
+        <action
+            android:id="@+id/action_topStoriesFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/popularFragment"
         android:name="com.example.usatoday.views.mainScreenFragments.PopularFragment"
@@ -30,4 +34,14 @@
         android:name="com.example.usatoday.views.mainScreenFragments.SavedFragment"
         android:label="fragment_saved"
         tools:layout="@layout/fragment_saved" />
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.usatoday.views.fragments.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/activity_article" >
+        <argument
+            android:name="response"
+            app:argType="string"
+            android:defaultValue="a" />
+    </fragment>
 </navigation>
