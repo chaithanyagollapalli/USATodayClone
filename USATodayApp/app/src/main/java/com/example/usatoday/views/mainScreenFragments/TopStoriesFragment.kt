@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -36,6 +37,7 @@ class TopStoriesFragment : Fragment(), ArticleClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        pbTopStories.isVisible = true
 
         rvTopStories.layoutManager = LinearLayoutManager(activity)
         val topStoriesAdapter = TopStoriesAdapter(list, this)
@@ -47,6 +49,7 @@ class TopStoriesFragment : Fragment(), ArticleClickListener {
         usaTodayViewModel.getAllNews().observe(this, Observer {
             val result = it.data!!
             list.addAll(result)
+            pbTopStories.isVisible = false
             topStoriesAdapter.notifyDataSetChanged()
         })
 

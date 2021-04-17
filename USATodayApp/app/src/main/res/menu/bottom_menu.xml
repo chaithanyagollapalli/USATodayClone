@@ -3,22 +3,27 @@
 
     <item
         android:id="@+id/topStoriesFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_script"
         android:title="Top Stories" />
     <item
         android:id="@+id/popularFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_star"
         android:title="Popular" />
     <item
         android:id="@+id/sectionsFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_sections"
         android:title="Sections" />
     <item
         android:id="@+id/myTopicsFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_speech_bubble"
         android:title="My Topics" />
     <item
         android:id="@+id/savedFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_save"
         android:title="Saved" />
 </menu>
