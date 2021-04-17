@@ -42,7 +42,7 @@ class TopStoriesFragment : Fragment(), ArticleClickListener, ShareClickListener 
         pbTopStories.isVisible = true
 
         rvTopStories.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this)
+        val newsAdapter = NewsAdapter(list, this,this)
         rvTopStories.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
