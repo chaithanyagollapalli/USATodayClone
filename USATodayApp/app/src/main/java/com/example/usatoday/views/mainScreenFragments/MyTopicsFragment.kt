@@ -17,9 +17,10 @@ import com.example.usatoday.views.MyTopicsFilterActivity
 import com.example.usatoday.views.activities.ArticleActivity
 import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
+import com.example.usatoday.views.interfaces.ShareClickListener
 import kotlinx.android.synthetic.main.fragment_my_topics.*
 
-class MyTopicsFragment : Fragment(), ArticleClickListener {
+class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
 
     private val list = mutableListOf<Response>()
 
@@ -38,7 +39,7 @@ class MyTopicsFragment : Fragment(), ArticleClickListener {
         initClickListener()
 
         rvMyTopics.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this)
+        val newsAdapter = NewsAdapter(list, this,this)
         rvMyTopics.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
@@ -65,6 +66,10 @@ class MyTopicsFragment : Fragment(), ArticleClickListener {
     }
 
     override fun onSaveClicked(response: Response) {
+
+    }
+
+    override fun onShareClick(response: Response) {
 
     }
 
