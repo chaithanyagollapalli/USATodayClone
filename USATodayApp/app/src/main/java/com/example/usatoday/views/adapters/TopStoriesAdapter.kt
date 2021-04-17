@@ -5,12 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.usatoday.R
 import com.example.usatoday.data.model.Response
+import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.viewholders.TopStoriesViewHolder
 
-class TopStoriesAdapter(private val list : List<Response>) : RecyclerView.Adapter<TopStoriesViewHolder>() {
+class TopStoriesAdapter(
+    private val list: List<Response>,
+    private val articleClickListener: ArticleClickListener
+) : RecyclerView.Adapter<TopStoriesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopStoriesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item_layout,parent,false)
-        return TopStoriesViewHolder(view)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.news_item_layout, parent, false)
+        return TopStoriesViewHolder(view, articleClickListener)
     }
 
     override fun getItemCount(): Int {
