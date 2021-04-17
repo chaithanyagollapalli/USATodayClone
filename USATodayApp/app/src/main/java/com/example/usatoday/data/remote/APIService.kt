@@ -8,4 +8,7 @@ interface APIService {
     @GET("allnews")
     suspend fun getAllNews(): List<Response>
 
+    @GET("movies")
+    suspend fun getPopularNews(): List<Response>
+
 }

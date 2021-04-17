@@ -24,7 +24,7 @@
                 android:gravity="center"
                 android:text="No"
                 android:textColor="@color/black"
-                android:textSize="@dimen/sp_25"
+                android:textSize="@dimen/sp_20"
                 android:textStyle="bold" />
 
             <TextView
@@ -34,21 +34,22 @@
                 android:layout_marginStart="@dimen/dp_30"
                 android:layout_marginTop="@dimen/dp_20"
                 android:layout_toEndOf="@+id/tvRanking"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:maxLines="3"
                 android:text="Title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/sp_25"
+                android:textSize="@dimen/sp_20"
                 android:textStyle="bold" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/Saved"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_30"
                 android:layout_marginTop="@dimen/dp_150"
                 android:layout_toEndOf="@+id/tvRanking"
-                android:background="@color/black"
-                app:srcCompat="@drawable/ic_baseline_saved_24" />
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_save_news" />
 
             <ImageView
                 android:id="@+id/Share"
@@ -57,8 +58,8 @@
                 android:layout_marginStart="@dimen/dp_100"
                 android:layout_marginTop="@dimen/dp_150"
                 android:layout_toEndOf="@+id/tvRanking"
-                android:background="@color/black"
-                app:srcCompat="@drawable/ic_baseline_share_24" />
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_share_24" />
 
             <TextView
                 android:id="@+id/tvTime"
@@ -67,9 +68,9 @@
                 android:layout_marginStart="170dp"
                 android:layout_marginTop="@dimen/dp_150"
                 android:layout_toEndOf="@+id/tvRanking"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="Time"
                 android:textColor="@color/black"
-                android:textSize="@dimen/sp_20"
                 android:textStyle="bold" />
 
 
