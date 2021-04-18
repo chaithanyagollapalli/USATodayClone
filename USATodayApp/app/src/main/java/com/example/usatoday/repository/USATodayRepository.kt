@@ -147,15 +147,8 @@ class USATodayRepository {
         }
     }
 
-    suspend fun saveTopic(id: Int): Resource<List<SubCategoryDTO>> {
-        val result = apiClient.saveTopic(id)
-
-        return try {
-            responseHandler.handleSuccess(result)
-
-        } catch (e: Exception) {
-            responseHandler.handleException(e)
-        }
+    suspend fun saveTopic(id: Int){
+        apiClient.saveTopic(id)
     }
 
     suspend fun delTopic(id: Int): Resource<List<SubCategoryDTO>> {
@@ -204,15 +197,8 @@ class USATodayRepository {
         }
     }
 
-    suspend fun removeAllSaved(): Resource<List<Response>> {
-        val result = apiClient.removeAllSaved()
-
-        return try {
-            responseHandler.handleSuccess(result)
-
-        } catch (e: Exception) {
-            responseHandler.handleException(e)
-        }
+    suspend fun removeAllSaved() {
+        apiClient.removeAllSaved()
     }
 
 }

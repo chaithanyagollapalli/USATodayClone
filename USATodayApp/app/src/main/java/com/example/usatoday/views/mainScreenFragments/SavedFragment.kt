@@ -58,14 +58,18 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
         })
 
         ivDeleteSaved.setOnClickListener {
-            usaTodayViewModel.removeAllSaved().observe(viewLifecycleOwner, Observer {
+
+            usaTodayViewModel.removeAllSaved()
+//            newsAdapter.notifyDataSetChanged()
+            usaTodayViewModel.getSavedNews().observe(viewLifecycleOwner, Observer {
+                list.clear()
                 val result = it.data!!
                 if (result.isEmpty()) {
-                    animationView.isVisible = true
                 }
-                list.addAll(result)
+//                list.addAll(result)
                 Toast.makeText(context, "Removed", Toast.LENGTH_SHORT).show()
                 newsAdapter.notifyDataSetChanged()
+                animationView.isVisible = true
             })
         }
 

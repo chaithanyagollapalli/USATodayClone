@@ -45,7 +45,7 @@ interface APIService {
     suspend fun getAllVideos(): List<VideosDTO>
 
     @POST("savetopic/{id}")
-    suspend fun saveTopic(@Path("id") id: Int): List<SubCategoryDTO>
+    suspend fun saveTopic(@Path("id") id: Int)
 
     @POST("deltopic/{id}")
     suspend fun delTopic(@Path("id") id: Int): List<SubCategoryDTO>
@@ -57,7 +57,7 @@ interface APIService {
     suspend fun removeNews(@Path("id") id: Int): List<Response>
 
     @POST("removeallsaved")
-    suspend fun removeAllSaved(): List<Response>
+    suspend fun removeAllSaved()
 
     @GET("news")
     suspend fun getSearchResults(@Query("category") category: String): SearchResponse

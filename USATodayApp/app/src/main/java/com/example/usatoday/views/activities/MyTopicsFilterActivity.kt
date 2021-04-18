@@ -41,9 +41,9 @@ class MyTopicsFilterActivity : AppCompatActivity(), SwitchListener {
 
     override fun switchStatus(subCategoryDTO: SubCategoryDTO) {
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
-        usaTodayViewModel.saveTopic(subCategoryDTO.id!!).observe(this, Observer {
-            val result = it
-        })
+
+        usaTodayViewModel.saveTopic(subCategoryDTO.id!!)
+
         Toast.makeText(this, "'${subCategoryDTO.name}' is added to my topics", Toast.LENGTH_SHORT)
             .show()
     }
