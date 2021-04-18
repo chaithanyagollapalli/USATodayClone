@@ -8,7 +8,9 @@ import com.example.usatoday.data.model.SubCategoryDTO
 import com.example.usatoday.data.model.VideosDTO
 import com.example.usatoday.data.remote.Resource
 import com.example.usatoday.repository.USATodayRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class USATodayViewModel() : ViewModel() {
 
@@ -101,10 +103,9 @@ class USATodayViewModel() : ViewModel() {
         }
     }
 
-    fun saveTopic(id: Int): LiveData<Resource<List<SubCategoryDTO>>> {
-        return liveData(Dispatchers.IO) {
+    fun saveTopic(id: Int){
+        CoroutineScope(Dispatchers.IO).launch {
             val result = usaTodayRepository.saveTopic(id)
-            emit(result)
         }
     }
 
@@ -129,10 +130,9 @@ class USATodayViewModel() : ViewModel() {
         }
     }
 
-    fun removeAllSaved(): LiveData<Resource<List<Response>>> {
-        return liveData(Dispatchers.IO) {
-            val result = usaTodayRepository.removeAllSaved()
-            emit(result)
+    fun removeAllSaved() {
+        CoroutineScope(Dispatchers.IO).launch {
+            usaTodayRepository.removeAllSaved()
         }
     }
 
