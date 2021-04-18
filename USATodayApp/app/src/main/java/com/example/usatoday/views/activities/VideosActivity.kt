@@ -23,7 +23,7 @@ class VideosActivity : AppCompatActivity() {
         pbVideos.isVisible = true
 
         rvVideos.layoutManager = LinearLayoutManager(this)
-        val videosAdapter = VideosAdapter(videosList)
+        val videosAdapter = VideosAdapter(videosList, this.lifecycle)
         rvVideos.adapter = videosAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
