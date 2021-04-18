@@ -1,4 +1,4 @@
-package com.example.usatoday.views
+package com.example.usatoday.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.usatoday.R
 import com.example.usatoday.data.model.SubCategoryDTO
 import com.example.usatoday.viewmodel.USATodayViewModel
+import com.example.usatoday.views.interfaces.SwitchListener
 import com.example.usatoday.views.adapters.TopicFilterAdapter
 import kotlinx.android.synthetic.main.activity_my_topics_filter.*
 

@@ -1,4 +1,4 @@
-package com.example.usatoday.views
+package com.example.usatoday.views.activities
 
 import android.content.Intent
 import android.os.Bundle

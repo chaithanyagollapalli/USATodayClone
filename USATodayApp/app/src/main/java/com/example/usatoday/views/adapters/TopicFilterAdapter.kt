@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.usatoday.R
 import com.example.usatoday.data.model.SubCategoryDTO
-import com.example.usatoday.views.SwitchListener
+import com.example.usatoday.views.interfaces.SwitchListener
 import com.example.usatoday.views.viewholders.TopicFilterViewHolder
 
 class TopicFilterAdapter(

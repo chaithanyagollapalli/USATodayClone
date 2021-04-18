@@ -25,6 +25,10 @@ class PopularViewHolder(
                 articleClickListener.onArticleClick(popularResponse)
             }
 
+            ivSaved.setOnClickListener {
+                articleClickListener.onSaveClicked(popularResponse)
+            }
+
             ivShare.setOnClickListener {
                 shareClickListener.onShareClick(popularResponse)
             }

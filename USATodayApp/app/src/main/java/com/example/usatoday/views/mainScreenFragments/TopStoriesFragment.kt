@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -43,7 +44,7 @@ class TopStoriesFragment : Fragment(), ArticleClickListener, ShareClickListener 
         pbTopStories.isVisible = true
 
         rvTopStories.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this,this)
+        val newsAdapter = NewsAdapter(list, this, this)
         rvTopStories.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
@@ -80,7 +81,13 @@ class TopStoriesFragment : Fragment(), ArticleClickListener, ShareClickListener 
     }
 
     override fun onSaveClicked(response: Response) {
+        val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
+        usaTodayViewModel.saveNews(response.id!!).observe(viewLifecycleOwner, Observer {
+            val result = it.data!!
+        })
+
+        Toast.makeText(context, "Saved..", Toast.LENGTH_SHORT).show()
     }
 
     override fun onShareClick(response: Response) {
