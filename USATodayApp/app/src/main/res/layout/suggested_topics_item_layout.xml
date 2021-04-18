@@ -11,6 +11,7 @@
         android:layout_marginLeft="@dimen/dp_25"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginBottom="@dimen/dp_5"
+        android:fontFamily="@font/golano"
         android:text="aaaa"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_18"

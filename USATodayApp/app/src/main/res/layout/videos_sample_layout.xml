@@ -20,6 +20,7 @@
             android:id="@+id/tvVideos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/golano"
             android:paddingTop="@dimen/dp_7"
             android:text="aaaaaaaaaaaaaaaaaaa"
             android:textSize="@dimen/sp_18"
