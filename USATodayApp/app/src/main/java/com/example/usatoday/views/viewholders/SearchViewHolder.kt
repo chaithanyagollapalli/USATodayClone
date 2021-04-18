@@ -27,6 +27,8 @@ class SearchViewHolder(
             }
 
             ibSave.setOnClickListener {
+                ibSave.visibility = View.INVISIBLE
+                ibSave2.visibility = View.VISIBLE
                 searchArticleClickListener.onSearchSaveClicked(dataItem)
             }
         }

@@ -24,6 +24,6 @@
     <item
         android:id="@+id/savedFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_save"
+        android:icon="@drawable/ic_baseline_bookmark_border_24_menu"
         android:title="Saved" />
 </menu>
