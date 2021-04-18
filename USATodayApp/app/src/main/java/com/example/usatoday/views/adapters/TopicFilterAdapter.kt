@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.usatoday.R
 import com.example.usatoday.data.model.SubCategoryDTO
-import com.example.usatoday.views.SwitchListener
+import com.example.usatoday.views.interfaces.SwitchListener
 import com.example.usatoday.views.viewholders.TopicFilterViewHolder
 
 class TopicFilterAdapter(
@@ -16,12 +16,12 @@ class TopicFilterAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicFilterViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.suggested_topics_item_layout, parent, false)
-        return TopicFilterViewHolder(view)
+        return TopicFilterViewHolder(view, switchListener)
     }
 
     override fun onBindViewHolder(holder: TopicFilterViewHolder, position: Int) {
         val subCategory = subCategories[position]
-        holder.setData(subCategory, switchListener)
+        holder.setData(subCategory)
     }
 
     override fun getItemCount(): Int {

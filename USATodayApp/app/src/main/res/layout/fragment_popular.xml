@@ -20,6 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/golano"
                 android:padding="@dimen/dp_8"
                 android:text="Most Popular"
                 android:textColor="@color/black"
@@ -39,6 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/ivSettingsPopular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_10"

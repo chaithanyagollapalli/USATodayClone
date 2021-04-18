@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.replace
 import com.example.usatoday.R
-import com.example.usatoday.views.VideosActivity
+import com.example.usatoday.views.activities.VideosActivity
+import com.example.usatoday.views.activities.SettingActivity
 import kotlinx.android.synthetic.main.fragment_sections.*
 
 
@@ -25,6 +24,11 @@ class SectionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ivSettingsSections.setOnClickListener {
+            val intent = Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
+        }
 
         tvOlympicsSections.setOnClickListener {
             changeFragment(1)

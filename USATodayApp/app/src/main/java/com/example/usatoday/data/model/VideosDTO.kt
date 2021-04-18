@@ -11,5 +11,8 @@ data class VideosDTO(
 	val id: Int? = null,
 
 	@field:SerializedName("vidUrl")
-	val vidUrl: String? = null
+	val vidUrl: String? = null,
+
+	@field:SerializedName("vidId")
+	val vidId: String? = null
 )

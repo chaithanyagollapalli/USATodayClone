@@ -1,4 +1,4 @@
-package com.example.usatoday.views
+package com.example.usatoday.views.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -19,7 +19,7 @@ class SplashScreenActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 3000)
+        }, 1000)
 
     }
 }

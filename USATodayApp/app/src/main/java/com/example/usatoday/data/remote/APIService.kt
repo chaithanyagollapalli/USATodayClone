@@ -53,6 +53,12 @@ interface APIService {
     @POST("save/{id}")
     suspend fun saveNews(@Path("id") id: Int): List<Response>
 
+    @POST("remove/{id}")
+    suspend fun removeNews(@Path("id") id: Int): List<Response>
+
+    @POST("removeallsaved")
+    suspend fun removeAllSaved(): List<Response>
+
     @GET("news")
     suspend fun getSearchResults(@Query("category") category: String): SearchResponse
 

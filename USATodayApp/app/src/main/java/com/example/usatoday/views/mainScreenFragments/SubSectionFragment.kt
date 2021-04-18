@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -114,10 +115,23 @@ class SubSectionFragment : Fragment(), ArticleClickListener,ShareClickListener {
     }
 
     override fun onSaveClicked(response: Response) {
+        val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
+        usaTodayViewModel.saveNews(response.id!!).observe(viewLifecycleOwner, Observer {
+            val result = it.data!!
+        })
+
+        Toast.makeText(context, "Saved..", Toast.LENGTH_SHORT).show()
     }
 
     override fun onShareClick(response: Response) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, response.heading.toString() + "\n" + "\n" + response.img)
+            type = "text/plain"
+        }
 
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }

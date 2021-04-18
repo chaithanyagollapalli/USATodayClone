@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_8"
                 android:text="Saved"
+                android:fontFamily="@font/golano"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_20"
                 android:textStyle="bold"
@@ -30,7 +31,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/ivFilterMyTopics"
+                android:id="@+id/ivDeleteSaved"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_10"
@@ -39,11 +40,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/ivSettingsSaved"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_10"
                 android:src="@drawable/ic_settings"
-                app:layout_constraintEnd_toStartOf="@id/ivFilterMyTopics"
+                app:layout_constraintEnd_toStartOf="@id/ivDeleteSaved"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -66,5 +68,16 @@
         android:paddingBottom="@dimen/dp_50"
         app:layout_constraintTop_toBottomOf="@id/cvSaved" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="@dimen/dp_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="empty_result.json"
+        app:lottie_loop="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

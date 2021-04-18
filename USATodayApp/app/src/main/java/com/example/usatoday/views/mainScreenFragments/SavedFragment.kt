@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -14,6 +15,7 @@ import com.example.usatoday.R
 import com.example.usatoday.data.model.Response
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.activities.ArticleActivity
+import com.example.usatoday.views.activities.SettingActivity
 import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.interfaces.ShareClickListener
@@ -23,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_saved.*
 class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
 
     val list = mutableListOf<Response>()
+    lateinit var newsAdapter: NewsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,19 +39,40 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         pbSaved.isVisible = true
+        animationView.isVisible = false
 
         rvSaved.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this,this)
+        val newsAdapter = NewsAdapter(list, this, this)
         rvSaved.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
         usaTodayViewModel.getSavedNews().observe(viewLifecycleOwner, Observer {
             val result = it.data!!
+            if (result.isEmpty()) {
+                animationView.isVisible = true
+            }
             list.addAll(result)
             pbSaved.isVisible = false;
             newsAdapter.notifyDataSetChanged()
         })
+
+        ivDeleteSaved.setOnClickListener {
+            usaTodayViewModel.removeAllSaved().observe(viewLifecycleOwner, Observer {
+                val result = it.data!!
+                if (result.isEmpty()) {
+                    animationView.isVisible = true
+                }
+                list.addAll(result)
+                Toast.makeText(context, "Removed", Toast.LENGTH_SHORT).show()
+                newsAdapter.notifyDataSetChanged()
+            })
+        }
+
+        ivSettingsSaved.setOnClickListener {
+            val intent = Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -59,10 +83,27 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
     }
 
     override fun onSaveClicked(response: Response) {
+        val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
+        usaTodayViewModel.removeNews(response.id!!).observe(viewLifecycleOwner, Observer {
+            val result = it.data!!
+            if (result.isEmpty()) {
+                animationView.isVisible = true
+            }
+            list.addAll(result)
+            pbSaved.isVisible = false;
+            newsAdapter.notifyDataSetChanged()
+        })
     }
 
     override fun onShareClick(response: Response) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, response.heading.toString() + "\n" + "\n" + response.img)
+            type = "text/plain"
+        }
 
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }
