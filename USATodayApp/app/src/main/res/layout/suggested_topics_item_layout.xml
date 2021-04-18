@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_5">
 
     <TextView
         android:id="@+id/tvSectionName"
@@ -11,6 +12,7 @@
         android:layout_marginLeft="@dimen/dp_25"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginBottom="@dimen/dp_5"
+        android:fontFamily="@font/golano"
         android:text="aaaa"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_18"
@@ -18,14 +20,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/scSection"
+    <ImageButton
+        android:id="@+id/ibAddSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_25"
         android:layout_marginBottom="@dimen/dp_5"
+        android:background="@color/material_on_background_disabled"
+        android:src="@drawable/ic_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:background="@color/custom_grey"
+        app:layout_constraintTop_toBottomOf="@id/ibAddSection" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

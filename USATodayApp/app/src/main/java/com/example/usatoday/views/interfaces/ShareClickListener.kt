@@ -1,7 +1,9 @@
 package com.example.usatoday.views.interfaces
 
+import com.example.usatoday.data.model.Response
+
 interface ShareClickListener {
 
-    fun onShareClick(response: com.example.usatoday.data.model.Response)
+    fun onShareClick(response: Response)
 
 }

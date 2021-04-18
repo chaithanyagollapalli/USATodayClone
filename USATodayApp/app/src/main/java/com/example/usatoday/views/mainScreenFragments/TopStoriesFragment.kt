@@ -57,11 +57,8 @@ class TopStoriesFragment : Fragment(), ArticleClickListener, ShareClickListener 
             tvHeadlineTopStories.text = result[24].heading
             Glide.with(this).load(result[24].img).into(ivImageTopStories)
             tvHeadlineTopStories.setOnClickListener {
-                val gson = Gson()
-                val myJson = gson.toJson(result[24])
-
                 val intent = Intent(activity, ArticleActivity::class.java)
-                intent.putExtra("response", myJson)
+                intent.putExtra("response", result[24])
                 startActivity(intent)
             }
             newsAdapter.notifyDataSetChanged()
