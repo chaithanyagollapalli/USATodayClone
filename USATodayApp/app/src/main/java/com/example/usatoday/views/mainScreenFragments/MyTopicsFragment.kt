@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_my_topics.*
 class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
 
     private val list = mutableListOf<Response>()
+    lateinit var newsAdapter:NewsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +33,24 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_topics, container, false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
+
+        usaTodayViewModel.getMyTopics().observe(viewLifecycleOwner, Observer {
+            val result = it.data!!
+            list.clear()
+            animationViewMyTopics.isVisible = false
+            if (result.isEmpty()) {
+                animationViewMyTopics.isVisible = true
+            }
+            list.addAll(result)
+            pbMyTopics.isVisible = false;
+            newsAdapter.notifyDataSetChanged()
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +62,7 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
         initClickListener()
 
         rvMyTopics.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this, this)
+        newsAdapter = NewsAdapter(list, this, this)
         rvMyTopics.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
