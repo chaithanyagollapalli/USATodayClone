@@ -1,11 +1,10 @@
 package com.example.usatoday.data.remote
 
-import com.example.usatoday.data.model.Response
-import com.example.usatoday.data.model.SubCategoryDTO
-import com.example.usatoday.data.model.VideosDTO
+import com.example.usatoday.data.model.*
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface APIService {
 
@@ -59,5 +58,8 @@ interface APIService {
 
     @POST("removeallsaved")
     suspend fun removeAllSaved()
+
+    @GET("news")
+    suspend fun getSearchResults(@Query("category") category: String): SearchResponse
 
 }

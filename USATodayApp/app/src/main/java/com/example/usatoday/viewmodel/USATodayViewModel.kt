@@ -3,9 +3,7 @@ package com.example.usatoday.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.example.usatoday.data.model.Response
-import com.example.usatoday.data.model.SubCategoryDTO
-import com.example.usatoday.data.model.VideosDTO
+import com.example.usatoday.data.model.*
 import com.example.usatoday.data.remote.Resource
 import com.example.usatoday.repository.USATodayRepository
 import kotlinx.coroutines.CoroutineScope
@@ -142,5 +140,14 @@ class USATodayViewModel() : ViewModel() {
             emit(result)
         }
     }
+
+    fun getSearchResults(category: String): LiveData<Resource<SearchResponse>> {
+
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.getSearchResults(category)
+            emit(result)
+        }
+    }
+
 
 }
