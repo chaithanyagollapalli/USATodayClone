@@ -7,6 +7,7 @@
     tools:context=".views.activities.VideosActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvVideos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/dp_10"
@@ -34,18 +35,22 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ProgressBar
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/pbVideos"
-        android:layout_width="@dimen/dp_30"
-        android:layout_height="@dimen/dp_30"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading.json"
+        app:lottie_loop="true" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVideos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/cvVideos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
