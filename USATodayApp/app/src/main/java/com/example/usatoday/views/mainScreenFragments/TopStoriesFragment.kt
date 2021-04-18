@@ -16,6 +16,7 @@ import com.example.usatoday.R
 import com.example.usatoday.data.model.Response
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.activities.ArticleActivity
+import com.example.usatoday.views.activities.SearchActivity
 import com.example.usatoday.views.activities.SettingActivity
 import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
@@ -66,6 +67,11 @@ class TopStoriesFragment : Fragment(), ArticleClickListener, ShareClickListener 
 
         ivSettingsTopStories.setOnClickListener {
             val intent = Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
+        }
+
+        ivSearchTopStories.setOnClickListener {
+            val intent = Intent(activity, SearchActivity::class.java)
             startActivity(intent)
         }
 

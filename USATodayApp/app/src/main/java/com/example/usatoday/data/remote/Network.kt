@@ -17,5 +17,14 @@ class Network {
                 .client(OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build())
                 .build()
         }
+
+        fun getSearchInstance(): Retrofit {
+            return Retrofit.Builder()
+                .baseUrl("https://inshortsapi.vercel.app/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build())
+                .build()
+        }
+
     }
 }

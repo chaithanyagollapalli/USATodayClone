@@ -1,8 +1,6 @@
 package com.example.usatoday.repository
 
-import com.example.usatoday.data.model.Response
-import com.example.usatoday.data.model.SubCategoryDTO
-import com.example.usatoday.data.model.VideosDTO
+import com.example.usatoday.data.model.*
 import com.example.usatoday.data.remote.APIService
 import com.example.usatoday.data.remote.Network
 import com.example.usatoday.data.remote.Resource
@@ -12,6 +10,7 @@ class USATodayRepository {
 
     private val apiClient: APIService = Network.getInstance().create(APIService::class.java)
 
+    private val searchApiClient: APIService = Network.getSearchInstance().create(APIService::class.java)
 
     private val responseHandler = ResponseHandler()
 
@@ -180,6 +179,19 @@ class USATodayRepository {
             responseHandler.handleException(e)
         }
     }
+
+    suspend fun getSearchResults(category: String): Resource<SearchResponse> {
+
+        val result = searchApiClient.getSearchResults(category)
+
+        try {
+            return responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            return responseHandler.handleException(e)
+        }
+    }
+
 
     suspend fun removeNews(id: Int): Resource<List<Response>> {
         val result = apiClient.removeNews(id)
