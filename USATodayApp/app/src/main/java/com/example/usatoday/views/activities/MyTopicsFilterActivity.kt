@@ -2,6 +2,7 @@ package com.example.usatoday.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -38,12 +39,12 @@ class MyTopicsFilterActivity : AppCompatActivity(), SwitchListener {
 
     }
 
-    override fun switchStatus(value: Boolean, position: Int) {
-        if (value) {
-            val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
-            usaTodayViewModel.saveTopic(subCategories[position].id!!).observe(this, Observer {
-                val result = it
-            })
-        }
+    override fun switchStatus(subCategoryDTO: SubCategoryDTO) {
+        val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
+        usaTodayViewModel.saveTopic(subCategoryDTO.id!!).observe(this, Observer {
+            val result = it
+        })
+        Toast.makeText(this, "'${subCategoryDTO.name}' is added to my topics", Toast.LENGTH_SHORT)
+            .show()
     }
 }

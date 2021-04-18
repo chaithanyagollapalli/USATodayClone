@@ -29,9 +29,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/golano"
                 android:padding="@dimen/dp_8"
                 android:text="Suggested Topics"
-                android:fontFamily="@font/golano"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_20"
                 android:textStyle="bold"

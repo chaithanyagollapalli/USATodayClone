@@ -58,22 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    <FrameLayout
-            android:id="@+id/pbTopStories"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ProgressBar
-
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="@dimen/dp_30" />
-
-        </FrameLayout>-->
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,18 +81,16 @@
                 android:id="@+id/tvHeadlineTopStories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginStart="@dimen/dp_15"
                 android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_15"
                 android:fontFamily="@font/golano"
-                android:textColor="@color/black"
+                android:textColor="@color/blue"
                 android:textSize="@dimen/sp_24"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivImageTopStories" />
 
-            <!--                            android:text="Prince Philip's funeral: Live updatesnkjnjnhjbnbghvjknhjvhjjhbjn"
-            -->
             <LinearLayout
                 android:id="@+id/llIcons"
                 android:layout_width="match_parent"
@@ -138,7 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_25"
-                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:fontFamily="@font/golano"
                     android:text="1h ago" />
 
             </LinearLayout>

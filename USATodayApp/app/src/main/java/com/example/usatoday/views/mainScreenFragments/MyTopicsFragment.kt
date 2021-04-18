@@ -36,18 +36,23 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        animationViewMyTopics.isVisible = false
         pbMyTopics.isVisible = true
 
         initClickListener()
 
         rvMyTopics.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this,this)
+        val newsAdapter = NewsAdapter(list, this, this)
         rvMyTopics.adapter = newsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
         usaTodayViewModel.getMyTopics().observe(viewLifecycleOwner, Observer {
             val result = it.data!!
+            if (result.isEmpty()) {
+                animationViewMyTopics.isVisible = true
+            }
             list.addAll(result)
             pbMyTopics.isVisible = false;
             newsAdapter.notifyDataSetChanged()
