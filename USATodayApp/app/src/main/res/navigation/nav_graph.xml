@@ -7,27 +7,41 @@
 
     <fragment
         android:id="@+id/topStoriesFragment"
-        android:name="com.example.usatoday.mainScreenFragments.TopStoriesFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.TopStoriesFragment"
         android:label="fragment_top_stories"
-        tools:layout="@layout/fragment_top_stories" />
+        tools:layout="@layout/fragment_top_stories" >
+        <action
+            android:id="@+id/action_topStoriesFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/popularFragment"
-        android:name="com.example.usatoday.mainScreenFragments.PopularFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.PopularFragment"
         android:label="fragment_popular"
         tools:layout="@layout/fragment_popular" />
     <fragment
         android:id="@+id/sectionsFragment"
-        android:name="com.example.usatoday.mainScreenFragments.SectionsFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.SectionsFragment"
         android:label="fragment_sections"
         tools:layout="@layout/fragment_sections" />
     <fragment
         android:id="@+id/myTopicsFragment"
-        android:name="com.example.usatoday.mainScreenFragments.MyTopicsFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.MyTopicsFragment"
         android:label="fragment_my_topics"
         tools:layout="@layout/fragment_my_topics" />
     <fragment
         android:id="@+id/savedFragment"
-        android:name="com.example.usatoday.mainScreenFragments.SavedFragment"
+        android:name="com.example.usatoday.views.mainScreenFragments.SavedFragment"
         android:label="fragment_saved"
         tools:layout="@layout/fragment_saved" />
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.usatoday.views.fragments.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/activity_article" >
+        <argument
+            android:name="response"
+            app:argType="string"
+            android:defaultValue="a" />
+    </fragment>
 </navigation>

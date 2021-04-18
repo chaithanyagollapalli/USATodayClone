@@ -4,6 +4,9 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
 }
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 30
@@ -78,9 +81,9 @@ dependencies {
 
 
     // Retrofit & OkHttp
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     // This library is used by retrofit internally to convert json-pojo and pojo-json
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     //This library is used to observe the API logs, Http status code and the API response
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     //Glide
@@ -93,5 +96,13 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
     implementation "androidx.navigation:navigation-fragment-ktx:2.2.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.2.1"
+
+    //navigation component
+    def nav_version = "2.3.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //youtube video player
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
 }
