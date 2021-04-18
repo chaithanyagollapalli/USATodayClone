@@ -30,6 +30,8 @@ class NewsViewHolder(
             }
 
             ibSave.setOnClickListener {
+                ibSave.visibility = View.INVISIBLE
+                ibSave2.visibility = View.VISIBLE
                 response.id?.let { articleClickListener.onSaveClicked(response) }
             }
         }
