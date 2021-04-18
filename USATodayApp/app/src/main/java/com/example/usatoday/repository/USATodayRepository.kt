@@ -13,7 +13,6 @@ class USATodayRepository {
     private val apiClient: APIService = Network.getInstance().create(APIService::class.java)
 
 
-
     private val responseHandler = ResponseHandler()
 
     suspend fun getAllNews(): Resource<List<Response>> {
@@ -173,6 +172,28 @@ class USATodayRepository {
 
     suspend fun saveNews(id: Int): Resource<List<Response>> {
         val result = apiClient.saveNews(id)
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun removeNews(id: Int): Resource<List<Response>> {
+        val result = apiClient.removeNews(id)
+
+        return try {
+            responseHandler.handleSuccess(result)
+
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun removeAllSaved(): Resource<List<Response>> {
+        val result = apiClient.removeAllSaved()
 
         return try {
             responseHandler.handleSuccess(result)

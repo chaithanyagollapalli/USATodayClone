@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -63,7 +64,13 @@ class PopularFragment : Fragment(), ArticleClickListener, ShareClickListener {
     }
 
     override fun onSaveClicked(response: Response) {
-        TODO("Not yet implemented")
+        val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
+
+        usaTodayViewModel.saveNews(response.id!!).observe(viewLifecycleOwner, Observer {
+            val result = it.data!!
+        })
+
+        Toast.makeText(context, "Saved..", Toast.LENGTH_SHORT).show()
     }
 
     override fun onShareClick(response: Response) {

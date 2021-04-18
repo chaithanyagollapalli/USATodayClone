@@ -122,6 +122,20 @@ class USATodayViewModel() : ViewModel() {
         }
     }
 
+    fun removeNews(id: Int): LiveData<Resource<List<Response>>> {
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.removeNews(id)
+            emit(result)
+        }
+    }
+
+    fun removeAllSaved(): LiveData<Resource<List<Response>>> {
+        return liveData(Dispatchers.IO) {
+            val result = usaTodayRepository.removeAllSaved()
+            emit(result)
+        }
+    }
+
     fun getPopularNews(): LiveData<Resource<List<Response>>> {
         return liveData(Dispatchers.IO) {
             val result = usaTodayRepository.getPopularNews()

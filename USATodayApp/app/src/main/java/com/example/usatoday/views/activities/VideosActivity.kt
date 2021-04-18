@@ -1,4 +1,4 @@
-package com.example.usatoday.views
+package com.example.usatoday.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +10,6 @@ import com.example.usatoday.R
 import com.example.usatoday.data.model.VideosDTO
 import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.adapters.VideosAdapter
-import kotlinx.android.synthetic.main.activity_my_topics_filter.*
 import kotlinx.android.synthetic.main.activity_videos.*
 
 class VideosActivity : AppCompatActivity() {
