@@ -13,22 +13,24 @@
 
         <TextView
             android:id="@+id/tvTopic"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/dp_10"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
             android:fontFamily="@font/roboto_condensed_regular"
             android:text="Coronavirus COVID-19"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvHeadline"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
-            android:fontFamily="@font/roboto_condensed_bold"
+            android:fontFamily="@font/golano"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
             android:text="@string/example_headline"
-            android:textSize="@dimen/sp_20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
 
@@ -36,9 +38,9 @@
             android:id="@+id/ivImage"
             android:layout_width="@dimen/dp_100"
             android:layout_height="@dimen/dp_100"
-            android:scaleType="centerCrop"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginEnd="@dimen/dp_10"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvHeadline"
@@ -49,33 +51,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_5"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_save_news"
+            android:src="@drawable/ic_outline_bookmark_border_24_"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHeadline" />
+            app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+
+        <ImageButton
+            android:id="@+id/ibSave2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_bookmark_24_filled"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
 
         <ImageButton
             android:id="@+id/ibShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_30"
-            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_5"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_share_24"
-            app:layout_constraintStart_toEndOf="@id/ibSave"
-            app:layout_constraintTop_toBottomOf="@id/tvHeadline" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_25"
-            android:layout_marginTop="@dimen/dp_15"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:text="1h ago"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ibShare"
-            app:layout_constraintTop_toBottomOf="@id/tvHeadline" />
+            app:layout_constraintStart_toStartOf="@id/ibSave"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

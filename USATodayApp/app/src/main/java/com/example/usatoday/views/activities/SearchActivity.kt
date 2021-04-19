@@ -60,10 +60,6 @@ class SearchActivity : AppCompatActivity(), SearchArticleClickListener {
     }
 
     override fun onSearchShareClick(dataItem: DataItem) {
-
-    }
-
-    override fun onSearchSaveClicked(dataItem: DataItem) {
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(Intent.EXTRA_TEXT, dataItem.title + "\n" + "\n" + dataItem.readMoreUrl)
@@ -72,5 +68,9 @@ class SearchActivity : AppCompatActivity(), SearchArticleClickListener {
 
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(shareIntent)
+    }
+
+    override fun onSearchSaveClicked(dataItem: DataItem) {
+
     }
 }

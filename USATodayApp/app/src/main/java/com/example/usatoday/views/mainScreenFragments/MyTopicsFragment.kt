@@ -17,6 +17,7 @@ import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.activities.MyTopicsFilterActivity
 import com.example.usatoday.views.activities.ArticleActivity
 import com.example.usatoday.views.activities.SettingActivity
+import com.example.usatoday.views.adapters.MyTopicsAdapter
 import com.example.usatoday.views.adapters.NewsAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.interfaces.ShareClickListener
@@ -25,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_my_topics.*
 class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
 
     private val list = mutableListOf<Response>()
-    lateinit var newsAdapter:NewsAdapter
+    lateinit var myTopicsAdapter: MyTopicsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +50,7 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
             }
             list.addAll(result)
             pbMyTopics.isVisible = false;
-            newsAdapter.notifyDataSetChanged()
+            myTopicsAdapter.notifyDataSetChanged()
         })
     }
 
@@ -62,8 +63,8 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
         initClickListener()
 
         rvMyTopics.layoutManager = LinearLayoutManager(activity)
-        newsAdapter = NewsAdapter(list, this, this)
-        rvMyTopics.adapter = newsAdapter
+        myTopicsAdapter = MyTopicsAdapter(list, this, this)
+        rvMyTopics.adapter = myTopicsAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
@@ -74,7 +75,7 @@ class MyTopicsFragment : Fragment(), ArticleClickListener, ShareClickListener {
             }
             list.addAll(result)
             pbMyTopics.isVisible = false;
-            newsAdapter.notifyDataSetChanged()
+            myTopicsAdapter.notifyDataSetChanged()
         })
 
         ivSettingsMyTopics.setOnClickListener {
