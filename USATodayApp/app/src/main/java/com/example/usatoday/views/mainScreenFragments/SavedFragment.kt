@@ -17,6 +17,7 @@ import com.example.usatoday.viewmodel.USATodayViewModel
 import com.example.usatoday.views.activities.ArticleActivity
 import com.example.usatoday.views.activities.SettingActivity
 import com.example.usatoday.views.adapters.NewsAdapter
+import com.example.usatoday.views.adapters.SavedAdapter
 import com.example.usatoday.views.interfaces.ArticleClickListener
 import com.example.usatoday.views.interfaces.ShareClickListener
 import kotlinx.android.synthetic.main.fragment_saved.*
@@ -25,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_saved.*
 class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
 
     val list = mutableListOf<Response>()
-    lateinit var newsAdapter: NewsAdapter
+    lateinit var savedAdapter: SavedAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,8 +43,8 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
         animationView.isVisible = false
 
         rvSaved.layoutManager = LinearLayoutManager(activity)
-        val newsAdapter = NewsAdapter(list, this, this)
-        rvSaved.adapter = newsAdapter
+        savedAdapter = SavedAdapter(list, this, this)
+        rvSaved.adapter = savedAdapter
 
         val usaTodayViewModel = ViewModelProviders.of(this).get(USATodayViewModel::class.java)
 
@@ -54,21 +55,17 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
             }
             list.addAll(result)
             pbSaved.isVisible = false;
-            newsAdapter.notifyDataSetChanged()
+            savedAdapter.notifyDataSetChanged()
         })
 
         ivDeleteSaved.setOnClickListener {
 
             usaTodayViewModel.removeAllSaved()
-//            newsAdapter.notifyDataSetChanged()
             usaTodayViewModel.getSavedNews().observe(viewLifecycleOwner, Observer {
                 list.clear()
                 val result = it.data!!
-                if (result.isEmpty()) {
-                }
-//                list.addAll(result)
                 Toast.makeText(context, "Removed", Toast.LENGTH_SHORT).show()
-                newsAdapter.notifyDataSetChanged()
+                savedAdapter.notifyDataSetChanged()
                 animationView.isVisible = true
             })
         }
@@ -96,7 +93,7 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
             }
             list.addAll(result)
             pbSaved.isVisible = false;
-            newsAdapter.notifyDataSetChanged()
+            savedAdapter.notifyDataSetChanged()
         })
     }
 
