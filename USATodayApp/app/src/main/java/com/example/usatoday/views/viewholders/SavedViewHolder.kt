@@ -1,6 +1,7 @@
 package com.example.usatoday.views.viewholders
 
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.usatoday.data.model.Response
@@ -18,6 +19,8 @@ class SavedViewHolder(
     fun setData(response: Response) {
 
         itemView.apply {
+            ibSave.isVisible = false
+            ibSave2.isVisible = true
             tvHeadline.text = response.heading
             Glide.with(this).load(response.img).into(ivImage)
             tvDateTime.text = response.time

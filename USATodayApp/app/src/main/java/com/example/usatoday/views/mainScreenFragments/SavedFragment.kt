@@ -64,6 +64,8 @@ class SavedFragment : Fragment(), ArticleClickListener, ShareClickListener {
             usaTodayViewModel.getSavedNews().observe(viewLifecycleOwner, Observer {
                 list.clear()
                 val result = it.data!!
+                if (result.isEmpty()) {
+                }
                 Toast.makeText(context, "Removed", Toast.LENGTH_SHORT).show()
                 savedAdapter.notifyDataSetChanged()
                 animationView.isVisible = true
