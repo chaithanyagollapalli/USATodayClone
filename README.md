@@ -31,7 +31,7 @@ This project is designed only for learning purpose with the guidance of Masai Sc
 
 This Project is made in Kotlin with Android Studio IDE.
 
-Dependencies Used 
+Dependencies Used :
 - [Circular View](https://github.com/hdodenhof/CircleImageView) 
 - [Glide](https://github.com/bumptech/glide) 
 - [ViewModel & LiveData](https://gist.github.com/sanogueralorenzo/217ab91e45b2b66935608bb6f48c0d1f)
