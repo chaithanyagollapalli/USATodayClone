@@ -43,7 +43,3 @@ This is a an android project based on modern Android application tech-stacks and
 - [Navigation Component](https://developer.android.com/jetpack/androidx/releases/navigation) for bottom navigation.
 - [Youtube Video View](https://github.com/PierfrancescoSoffritti/android-youtube-player) - for videos.
 
-## Team Members 
-- [Prabin Kumar Sahu](https://github.com/prabinkumarsahu28)
-- [Chaithanya Guptha Gollapalli](https://github.com/chaithanyagollapalli)
-- [Kalpesh Dupia](https://github.com/kalpesh022)
