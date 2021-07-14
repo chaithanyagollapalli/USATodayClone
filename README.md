@@ -28,7 +28,7 @@ This is a an android project based on modern Android application tech-stacks and
  </table>
 
 ## Libraries & Tech Used
-- Minimum SDK level 23
+- Minimum SDK level 21
 - [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous handling.
 - JetPack
   - LiveData - notify domain layer data to views.
