@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">  
-This is a an android project based on modern Android application tech-stacks and MVVM architecture. Created database using MySQL and created APIs using SpringBoot.
+This is a demo android project based on modern Android application tech-stacks and MVVM architecture. It is a news app dedicated to reading stories, events, and the latest happenings in and around the world. Created database using MySQL and created APIs using SpringBoot.
 </p>
 
 ## App Screenshots
