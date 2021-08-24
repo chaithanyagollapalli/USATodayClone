@@ -36,7 +36,7 @@ This is a demo android project based on modern Android application tech-stacks a
   - ViewModel - lifecycle aware UI related data holder.
 - Architecture
   - MVVM Architecture (View - DataBinding - ViewModel - Model) 
-- [Glide](https://github.com/bumptech/glide) - loading images.
+- [Glide](https://github.com/bumptech/glide) - loading  images.
 - [Gson](https://github.com/google/gson/) - A JSON library for parsing network response.
 - [Retrofit](https://github.com/square/retrofit) - for REST APIs and network data.
 - [Lottie](https://github.com/airbnb/lottie-android) - for animations.
